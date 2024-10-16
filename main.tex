@@ -1,0 +1,33 @@
+\documentclass{extbook}
+
+\usepackage{geometry}
+
+\geometry{
+b5paper,
+includemp,
+textwidth=100mm,
+inner=20mm,
+top=20mm,
+bottom=20mm,
+showframe,
+}
+
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[
+	Extension={.otf},
+	Path=./configs/fonts/,
+	UprightFont={*-regular},
+	ItalicFont={*-italic},
+	BoldFont={*-bold},
+	BoldItalicFont={*-bolditalic},
+	Numbers=OldStyle,
+	Kerning=On,
+	Ligatures=Common,
+]
+
+
+\usepackage{blindtext}
+
+\begin{document}
+\Blinddocument
+\end{document}
