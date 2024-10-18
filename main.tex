@@ -1,7 +1,8 @@
-\documentclass{extbook}
+\documentclass{book}
 
 \usepackage{geometry}
 
+% GENERAL TYPE AREA LAYOUT
 \geometry{
 b5paper,
 includemp,
@@ -9,9 +10,10 @@ textwidth=100mm,
 inner=20mm,
 top=20mm,
 bottom=20mm,
-showframe,
+%showframe,
 }
 
+% TYPEFACE
 \usepackage{fontspec}
 \setmainfont{texgyrepagella}[
 	Extension={.otf},
@@ -25,9 +27,31 @@ showframe,
 	Ligatures=Common,
 ]
 
+\usepackage{unicode-math}
+\setmathfont{texgyrepagella-math.otf}[
+Path=./configs/fonts/,
+]
 
-\usepackage{blindtext}
+% SECTIONING FORMAT
+\usepackage{titlesec}
+\titleformat{\chapter}{\huge}{}{0pt}{\LARGE\raggedright}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titleformat{\section}{\scshape}{\thesection}{12pt}{\large\raggedright}
+
+% SIDEY
+\usepackage[
+ragged,
+mark=arabic,
+shape=up,
+]{sidenotesplus}
+
+\usepackage[math]{blindtext}
 
 \begin{document}
-\Blinddocument
+\chapter{Sample here}
+
+Abstract.
+\Blindtext
+\section{Section here}
+\blindtext\sidenote{Some text here, of course.}
 \end{document}
