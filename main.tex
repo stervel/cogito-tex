@@ -45,12 +45,19 @@ mark=arabic,
 shape=up,
 ]{sidenotesplus}
 
+% MACROS
+\newcommand{\intisari}[2]{
+\textsc{intisari} \sidenote*{\textsc{\normalsize kata kunci} \newline {\small #2}} \newline #1  \par\noindent\rule{\textwidth}{0.5pt} }
+
+
 \usepackage[math]{blindtext}
 
 \begin{document}
 \chapter{Sample here}
 
-Abstract.
+\intisari{\blindtext}{Tatapan\\Pengertian\\Ujaran\\Saran Orang}
+
+
 \Blindtext
 \section{Section here}
 \blindtext\sidenote{Some text here, of course.}
