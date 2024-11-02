@@ -27,14 +27,35 @@ bottom=20mm,
 	Ligatures=Common,
 ]
 
+\setsansfont{gillsans}[
+Extension={.otf},
+Path=./configs/fonts/,
+UprightFont={*-medium},
+ItalicFont={*-mediumitalic},
+BoldFont={*-bold},
+BoldItalicFont={*-bolditalic},
+Numbers=OldStyle,
+Kerning=On,
+Ligatures=Common,
+]
+
 \usepackage{unicode-math}
 \setmathfont{texgyrepagella-math.otf}[
 Path=./configs/fonts/,
 ]
 
+% MICROTYPOGRAPHY
+\usepackage[bahasa]{babel}
+\renewcommand\bahasahyphenmins{33}
+\usepackage{csquotes}
+\setquotestyle{english}
+\MakeOuterQuote{"}
+
+\usepackage[protrusion=true,expansion]{microtype}
+
 % SECTIONING FORMAT
 \usepackage{titlesec}
-\titleformat{\chapter}{\huge}{}{0pt}{\LARGE\raggedright}
+\titleformat{\chapter}{\huge}{}{0pt}{\LARGE\sffamily\raggedright}
 \titlespacing*{\chapter}{0pt}{0pt}{0pt}
 \titleformat{\section}{\scshape}{\thesection}{12pt}{\large\raggedright}
 
@@ -52,10 +73,20 @@ shape=up,
 
 \usepackage[math]{blindtext}
 
-\begin{document}
-\chapter{Sample here}
+% Chapter override
+\newcommand\Chapter[2]{
+	\chapter[#1 {#2}]{\textbf{#1}\\ 
+	\large{#2}\bigskip}
+}
 
-\intisari{\blindtext}{Tatapan\\Pengertian\\Ujaran\\Saran Orang}
+\begin{document}
+\Chapter{\emph{The Critique of Mysticism}}{Muhammad Iqbal dan Kritik atas Kemanusiaan}
+
+\intisari{
+	Tema besar dalam artikel ini adalah memahami kembali makna filsafat sebagai ‘cinta kearifan’, bukan ‘benci kearifan’. Hal tersebut merupakan salah satu alasan mengapa Iqbal menjadi tokoh yang penting untuk dikaji pemikirannya lebih dalam. Dengan mengumpulkan sumber-sumber pustaka yang ada, serta menggunakan metode analisis yang mendalam, makalah ini diharapkan dapat memberi sebuah wacana baru tentang pemurnian kembali pemikiran filsafat. Hasil yang diperoleh dalam usaha analisis pemikiran Iqbal atas kritiknya terhadap mistisisme disimpulkan dalam beberapa poin berikut: \emph{pertama}, Iqbal menganggap sufisme lahir dari pengaruh idealisme Plato yang menyimpang oleh ajaran Plotinus. Akan tetapi kemungkinan bahwa Plotinus terpengaruh oleh pemikiran timur merupakan hal yang secara historis sementara dapat diterima. \emph{Kedua}, kritik kemanusiaan terhadap mistisisme yang dilontarkan Iqbal merupakan usaha purifikasi atas kecenderungan \emph{philosophia} menuju \emph{misosophia}. Ketiga, sifat implikatif filsafat memberikan satu pertanyaan terhadap pemikiran Iqbal yang bersifat sintesis. Jika kearifan adalah sintesa beberapa pemahaman dan menempatkannya dengan tepat, lalu bagaimana posisi individu kreatif yang dimaksud Iqbal? Bukankah hal tersebut membuat keterikatan pada banyak entitas yang berbeda dan menuntut untuk cenderung bersikap munafik.
+}{
+	Iqbal \\ Mistisisme \\ Kemanusiaan \\ Metafisika
+}
 
 
 \Blindtext
